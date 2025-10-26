@@ -1,0 +1,17 @@
+services:
+  - type: web_service
+    name: invidget
+    env: node
+    plan: starter
+    region: oregon
+    branch: main
+    buildCommand: npm ci
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: LOGGING_LEVEL
+        value: info
+
+# Note: Do NOT store secrets like SENTRY_DSN here in plaintext for shared repos.
+# Add secrets in the Render dashboard or use encrypted variables.
